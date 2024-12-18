@@ -1,0 +1,398 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School College</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        header img {
+            height: 50px;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            position: relative;
+            background-image: url('images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* Center the form container */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        /* Style the login form */
+        .form {
+            background-color: #f5f7f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form h2 {
+            font-size: 1.8em;
+            color: #004080;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #e6ece5;
+            border-radius: 4px;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #0059b3;
+        }
+
+        .form .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form .toggle-link a {
+            color: #004080;
+            text-decoration: none;
+        }
+
+        .form .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dashboard Styling */
+        .dashboard-container {
+            display: none;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            font-size: 2em;
+            margin-top: 0;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+            margin: 15px 0;
+        }
+        .sidebar a:hover {
+            background-color: #0059b3;
+            padding-left: 10px;
+        }
+
+        .dashboard-content {
+            padding: 50px 20px;
+            width: 100%;
+            flex-grow: 1;
+            background-color: #f4f4f9;
+        }
+
+        .dashboard-content h2 {
+            font-size: 2.5em;
+            color: #004080;
+        }
+        .dashboard-content section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-content .section-title {
+            font-size: 1.8em;
+            color: #004080;
+        }
+        .dashboard-content p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #004080;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        #back-to-top:hover {
+            background-color: #0059b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="School Logo">
+        <span style="margin-left: 10px; font-size: 1.5em; font-weight: bold;">STI College</span>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>    
+    <div class="hero" id="home">
+    </div>
+
+    <!-- Login, Signup, and Forgot Password Forms -->
+    <div class="form-container" id="login-container">
+        <div class="form login active" id="login-form">
+            <h2>Login</h2>
+            <form id="login-form-submit">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+
+                <div class="toggle-link">
+                    <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+                    <p><a href="#" id="show-forgot-password">Forgot Password?</a></p>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div class="form signup" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="new-username">Username</label>
+                <input type="text" id="new-username" name="new-username" placeholder="Create a username">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="new-password">Password</label>
+                <input type="password" id="new-password" name="new-password" placeholder="Create a password">
+                <div class="password-hint">Use letters, numbers, and symbols for a strong password.</div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form forgot-password" style="display: none;">
+            <h2>Forgot Password</h2>
+            <form id="forgot-password-form">
+                <label for="forgot-username">Username</label>
+                <input type="text" id="forgot-username" name="forgot-username" placeholder="Enter your username">
+
+                <label for="forgot-new-password">New Password</label>
+                <input type="password" id="forgot-new-password" name="forgot-new-password" placeholder="Enter a new password">
+
+                <button type="submit">Reset Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Our School</h2>
+        <p>Our school is committed to providing quality education to students, fostering a supportive and inclusive environment, and preparing learners for future success. We take pride in our dedicated faculty and diverse programs that cater to various student needs and interests.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like more information, please feel free to reach out to us.</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:STICollege@school.com">STICollege@school.com</a></li>
+            <li><strong>Phone:</strong> +6398 456 7890</li>
+            <li><strong>Address:</strong> 123 Education Lane, Pasay City, Philippines</li>
+        </ul>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top">&#8593;</button>
+
+    <script>
+        const showSignupLink = document.getElementById('show-signup');
+        const showForgotPasswordLink = document.getElementById('show-forgot-password');
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.querySelector('.form.signup');
+        const forgotPasswordForm = document.querySelector('.form.forgot-password');
+        const signupButton = document.querySelector('#signup-form button');
+        const loginSubmitButton = document.querySelector('#login-form-submit button');
+        const forgotPasswordButton = document.querySelector('#forgot-password-form button');
+        const backToTopButton = document.getElementById('back-to-top');
+        const loginContainer = document.getElementById('login-container');
+    
+        // Original admin account
+        const adminAccount = {
+            username: 'STIcollege',
+            password: 'STi2024!',
+        };
+    
+        // Handle switching between login, signup, and forgot password forms
+        showSignupLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+            forgotPasswordForm.style.display = 'none';
+        });
+
+        showForgotPasswordLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'none';
+            forgotPasswordForm.style.display = 'block';
+        });
+
+        // Handle signup process
+        signupButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const newUsername = document.getElementById('new-username').value;
+            const email = document.getElementById('email').value;
+            const newPassword = document.getElementById('new-password').value;
+    
+            if (newUsername && email && newPassword) {
+                // Save new user data to localStorage as a JSON array
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                users.push({ username: newUsername, password: newPassword });
+                localStorage.setItem('users', JSON.stringify(users));
+    
+                alert('Account created successfully! Please login.');
+                // Switch back to the login form
+                signupForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            } else {
+                alert('Please fill in all fields to sign up.');
+            }
+        });
+    
+        // Handle login process
+        loginSubmitButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            // Check if the credentials match the admin account
+            if (username === adminAccount.username && password === adminAccount.password) {
+                alert('Welcome, Admin! Login successful!');
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
+                return;
+            }
+    
+            // Check if the credentials match any user account
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.username === username && user.password === password);
+    
+            if (user) {
+                alert('Login successful! Welcome, ' + username + '!');
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
+            } else {
+                alert('Invalid login credentials.');
+            }
+        });
+
+        // Handle forgot password process
+        forgotPasswordButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const forgotUsername = document.getElementById('forgot-username').value;
+            const forgotNewPassword = document.getElementById('forgot-new-password').value;
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const userIndex = users.findIndex(user => user.username === forgotUsername);
+
+            if (userIndex !== -1) {
+                users[userIndex].password = forgotNewPassword;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Password reset successful. You can now login with your new password.');
+                forgotPasswordForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            } else {
+                alert('Username not found.');
+            }
+        });
+    
+        // Back to Top Button functionality
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+    
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    </script>    
+</body>
+</html>

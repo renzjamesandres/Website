@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-logo {
+            width: 50px; 
+            height: 50px; 
+        }
+
+        .sidebar h2 {
+            font-size: 2em;
+            margin-left: 10px;
+            margin-top: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+            margin: 15px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #0059b3;
+            padding-left: 10px;
+        }
+
+        .dashboard-content {
+            padding: 50px 20px;
+            margin-left: 270px; 
+            width: 100%;
+            background-color: #f4f4f9;
+        }
+
+        .dashboard-content h2 {
+            font-size: 2.5em;
+            color: #004080;
+        }
+        .dashboard-content section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #abcf57;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-content .section-title {
+            font-size: 1.8em;
+            color: #004080;
+        }
+        .dashboard-content p {
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <div class="sidebar">
+            
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="STI College Logo" class="sidebar-logo">
+                <h2>STI College</h2>
+            </div>
+            <a href="#grades">Grades</a>
+            <a href="#student-details">Student Details</a>
+            <a href="#attendance">Attendance</a>
+            <a href="#courses">Courses</a>
+            <a href="#teachers">Teachers</a>
+            <a href="#" id="logout-link">Logout</a>
+        </div>
+
+        <div class="dashboard-content">
+            <section id="grades">
+                <h2 class="section-title">Grades</h2>
+                <p>Here are your grades for this semester:</p>
+                <ul>
+                    <li>Object Oriented Programming: 80</li>
+                    <li>Rizal Life and Works: 80</li>
+                    <li>Data Structures and Algorithms: 80</li>
+                    <li>Platform Technology: 80</li>
+                </ul>
+            </section>
+
+            <section id="student-details">
+                <h2 class="section-title">Student Details</h2>
+                <p>Student ID: 12345</p>
+                <p>Name: Renz James M. Andres</p>
+                <p>Email: renzj@gmail.com</p>
+                <p>Program: Information Technology</p>
+            </section>
+
+            <section id="attendance">
+                <h2 class="section-title">Attendance</h2>
+                <p>Your attendance for this semester is:</p>
+                <ul>
+                    <li>Object Oriented Programming: 80%</li>
+                    <li>Rizal Life and Works: 80%</li>
+                    <li>Data Structures and Algorithms: 80%</li>
+                    <li>Platform Technology: 80%</li>
+                </ul>
+            </section>
+
+            <section id="courses">
+                <h2 class="section-title">Courses</h2>
+                <p>These are the courses you're enrolled in:</p>
+                <ul>
+                    <li>Object Oriented Programming: 307</li>
+                    <li>Rizal Life and Works: 307</li>
+                    <li>Data Structures and Algorithms: 307</li>
+                    <li>Platform Technology: 307</li>
+                </ul>
+            </section>
+
+            <section id="teachers">
+                <h2 class="section-title">Teachers</h2>
+                <p>Meet your instructors for this semester:</p>
+                <ul>
+                    <li>Object Oriented Programming: Mr. John Smith</li>
+                    <li>Rizal Life and Works: Ms. Maria Lopez</li>
+                    <li>Data Structures and Algorithms: Dr. James Brown</li>
+                    <li>Platform Technology: Prof. Angela Tan</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                window.location.href = 'index.html'; 
+            }
+        });
+    </script>
+</body>
+</html>
